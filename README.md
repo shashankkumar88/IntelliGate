@@ -8,6 +8,9 @@ This project deals with counting the number of people entering/exiting in enclos
 ## System Architecture
 ![System Architecture](https://github.com/shashankkumar88/IntelliGate/blob/main/Images/System%20Architecture.JPG)
 
+## Process Summary
+![System Architecture](https://github.com/shashankkumar88/IntelliGate/blob/main/Images/ProcessSummary.JPG)
+
 ## Future Work
 * Connect multiple Wyze IP camera for multi-entrance enclosed spaces
 * Control door open/close through IOT

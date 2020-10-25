@@ -1,0 +1,30 @@
+lcdRGB.lcdNew("lcd1", ".outer-pcbGreen");
+const Http = new XMLHttpRequest();
+const url='https://api.thingspeak.com/channels/1188860/fields/3/last.json?api_key=*****************';
+
+var time = 1;
+var interval = setInterval(function() { 
+   if (time <= 300) { 
+      //console.log(time)
+      Http.open("GET", url,false);
+      Http.send();
+      if (Http.status === 200) {
+		  var strTotalPeople= "Total People ";
+		  var totalPeople = parseInt(JSON.parse(Http.responseText).field3);
+		  console.log(totalPeople);
+		  if (parseInt(totalPeople) <4) {
+			lcdRGB.writeRow("lcd1", strTotalPeople.concat(String(totalPeople)), 0); 
+			lcdRGB.writeRow("lcd1", "  * WALK IN *  ", 1);
+		  }
+		  else{
+			lcdRGB.writeRow("lcd1", strTotalPeople.concat(String(totalPeople)), 0);
+			lcdRGB.writeRow("lcd1", "* PLEASE WAIT *", 1);
+		  }  
+	  }
+   time++;
+   }
+   else { 
+      clearInterval(interval);
+   }
+}, 1000);
+

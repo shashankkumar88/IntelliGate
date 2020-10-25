@@ -243,7 +243,7 @@ def run():
 						# Optimise number below: 10, 50, 100, etc., indicate the max. people inside limit
 						# if the limit exceeds, send an email alert
 						people_limit = 4
-						r = requests.get('https://api.thingspeak.com/update.json?api_key=1HE8E6I6TSLEYDHV&field3='+str(sum(x)))
+						r = requests.get('https://api.thingspeak.com/update.json?api_key=***********&field3='+str(sum(x)))
 						#print("Upload"+str(sum(x)))
 						if sum(x) == people_limit:   
 							if config.ALERT:

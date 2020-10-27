@@ -21,8 +21,8 @@
   </div>
 
 
-  <img id="lcd1602" src="../ArduinoSimulator/res/lcd1602.png" style="display:none;" alt="lcd background"/>
-	<img id="ArduinoSimulator" src="../Images/CircuitDiagram2.png" style="display:none;" alt="ArduinoSimulator"/>
+  
+  <img id="ArduinoSimulator" src="../Images/CircuitDiagram2.png" style="display:none;" alt="ArduinoSimulator"/>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
   </script>
 
@@ -39,8 +39,8 @@
 
     // resize the canvas according to the window size
     function resizeCanvas() {
-      //canv.width = cont.width();
-      //canv.height = window.innerHeight * 0.5;
+      canv.width = cont.width();
+      canv.height = window.innerHeight * 0.5;
     }
 
     lcdLoop = null;
@@ -69,7 +69,7 @@
       }
     });
    
-    var lcd1602 = document.getElementById("lcd1602");
+    
     var ArduinoSimulator = document.getElementById("ArduinoSimulator");
 	  
     // just render the display
@@ -88,7 +88,7 @@
 
         // render the bezel
         //ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
-	ctx.drawImage(ArduinoSimulator, -300, -300, ArduinoSimulator.width, ArduinoSimulator.height);
+	//ctx.drawImage(ArduinoSimulator, -300, -300, ArduinoSimulator.width, ArduinoSimulator.height);
       }
       window.setTimeout(lcdLoop, 50);
     };

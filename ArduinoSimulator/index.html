@@ -14,7 +14,7 @@
 <body>
   <div id="cont" class="container">
     <div id="head" class="page-header">
-      <h1></h1>
+      <h1>Arduino Simulator</h1>
     </div>
     <p class="lead"><br/><br/>
 	<canvas id="canv"></canvas>
@@ -39,8 +39,8 @@
 
     // resize the canvas according to the window size
     function resizeCanvas() {
-      //canv.width = cont.width();
-      //canv.height = window.innerHeight * 0.5;
+      canv.width = cont.width();
+      canv.height = window.innerHeight * 0.5;
     }
 
     lcdLoop = null;
@@ -60,7 +60,7 @@
       lcd.sendCommand(LCD_CMD_CLEAR);
 
       // output some text
-      var msg = "Hello, World!";
+      var msg = "IntelliGate";
       lcd.writeString(msg);
 
       // run the display loop
@@ -70,7 +70,8 @@
     });
    
     var lcd1602 = document.getElementById("lcd1602");
-
+    var ArduinoSimulator = document.getElementById("ArduinoSimulator");
+	  
     // just render the display
     lcdLoop = function () {
       if (lcd != null) {
@@ -86,39 +87,14 @@
         lcd.render(ctx, xOff + (76 * scale), yOff + (122 * scale), 710 * scale, 158 * scale);
 
         // render the bezel
-        ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
+        //ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
+	ctx.drawImage(ArduinoSimulator, xOff, yOff, ArduinoSimulator.width * scale, ArduinoSimulator.height * scale);
       }
       window.setTimeout(lcdLoop, 50);
     };
 
     resizeCanvas();
 
-    // handle key events
-    document.addEventListener('keydown', function (e) {
-      if (e.key == "ArrowLeft") {
-        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT | 
-                        (e.shiftKey ? LCD_CMD_SHIFT_DISPLAY : LCD_CMD_SHIFT_CURSOR));
-      } else if (e.key == "ArrowRight") {
-        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_RIGHT |
-                        (e.shiftKey ? LCD_CMD_SHIFT_DISPLAY : LCD_CMD_SHIFT_CURSOR));
-      } else if (e.key == "ArrowDown") {
-        for (var i = 0; i < 40; ++i)
-        {
-          lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_RIGHT | LCD_CMD_SHIFT_CURSOR);
-        }
-      } else if (e.key == "ArrowUp") {
-        for (var i = 0; i < 40; ++i)
-        {
-          lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT | LCD_CMD_SHIFT_CURSOR);
-        }
-      } else if (e.key == "Backspace") {
-        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT);
-        lcd.writeByte(32);
-        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT);
-      } else if (e.key.length == 1 && event.which > 30) {
-        lcd.writeByte(e.key.charCodeAt(0));
-      }
-    });    
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
   </script>

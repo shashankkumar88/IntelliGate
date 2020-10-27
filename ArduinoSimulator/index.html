@@ -88,13 +88,40 @@
 
         // render the bezel
         //ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
-	ctx.drawImage(ArduinoSimulator, xOff, yOff, ArduinoSimulator.width * scale, ArduinoSimulator.height * scale);
+	ctx.drawImage(ArduinoSimulator, xOff, yOff, ArduinoSimulator.width, ArduinoSimulator.height);
       }
       window.setTimeout(lcdLoop, 50);
     };
 
     resizeCanvas();
 
+	  // handle key events
+    document.addEventListener('keydown', function (e) {
+      if (e.key == "ArrowLeft") {
+        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT | 
+                        (e.shiftKey ? LCD_CMD_SHIFT_DISPLAY : LCD_CMD_SHIFT_CURSOR));
+      } else if (e.key == "ArrowRight") {
+        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_RIGHT |
+                        (e.shiftKey ? LCD_CMD_SHIFT_DISPLAY : LCD_CMD_SHIFT_CURSOR));
+      } else if (e.key == "ArrowDown") {
+        for (var i = 0; i < 40; ++i)
+        {
+          lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_RIGHT | LCD_CMD_SHIFT_CURSOR);
+        }
+      } else if (e.key == "ArrowUp") {
+        for (var i = 0; i < 40; ++i)
+        {
+          lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT | LCD_CMD_SHIFT_CURSOR);
+        }
+      } else if (e.key == "Backspace") {
+        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT);
+        lcd.writeByte(32);
+        lcd.sendCommand(LCD_CMD_SHIFT | LCD_CMD_SHIFT_LEFT);
+      } else if (e.key.length == 1 && event.which > 30) {
+        lcd.writeByte(e.key.charCodeAt(0));
+      }
+    });    
+	  
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous">
   </script>

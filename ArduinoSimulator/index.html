@@ -81,7 +81,7 @@
         var yOff = canv.height * 0.20;
         var width = canv.width * 0.60;
         var height = canv.height * 0.60;
-        var scale = Math.min(height / lcd1602.height, width / lcd1602.width);
+        var scale = Math.min(height / ArduinoSimulator.height, width / ArduinoSimulator.width);
 
         // render the lcd screen
         lcd.render(ctx, xOff + (76 * scale), yOff + (122 * scale), 710 * scale, 158 * scale);

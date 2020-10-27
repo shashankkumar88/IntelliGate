@@ -88,7 +88,7 @@
 
         // render the bezel
         //ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
-	ctx.drawImage(ArduinoSimulator, xOff, yOff, ArduinoSimulator.width, ArduinoSimulator.height);
+	ctx.drawImage(ArduinoSimulator, -300, -300, ArduinoSimulator.width, ArduinoSimulator.height);
       }
       window.setTimeout(lcdLoop, 50);
     };

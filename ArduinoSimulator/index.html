@@ -95,7 +95,7 @@
 	      //Draw the iage inside canvas
 	var ImageCanvas = document.getElementById('ImageCanvas');
         var ImageCanvasContext = canv.getContext('2d');
-	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.width, ArduinoSimulator.height);
+	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth, ArduinoSimulator.naturalHeight);
 	      ImageCanvasContext.clearRect(20, 20, 100, 50);
       }
       window.setTimeout(lcdLoop, 50);

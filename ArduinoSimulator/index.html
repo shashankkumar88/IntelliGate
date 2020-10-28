@@ -86,7 +86,7 @@
         var scale = Math.min(height / ArduinoSimulator.height, width / ArduinoSimulator.width);
 
         // render the lcd screen
-        lcd.render(ctx, xOff + (76 * scale), yOff + (122 * scale), 710 * scale, 158 * scale);
+        //lcd.render(ctx, xOff + (76 * scale), yOff + (122 * scale), 710 * scale, 158 * scale);
 
         // render the bezel
         //ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
@@ -95,8 +95,9 @@
 	      //Draw the iage inside canvas
 	var ImageCanvas = document.getElementById('ImageCanvas');
         var ImageCanvasContext = canv.getContext('2d');
-	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth, ArduinoSimulator.naturalHeight);
-	      ImageCanvasContext.clearRect(20, 20, 100, 50);
+	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth,800);
+	      ImageCanvasContext.clearRect(20, 20, 500, 500);
+	      lcd.render(ImageCanvasContext, 5, 5, 200, 200);
       }
       window.setTimeout(lcdLoop, 50);
     };

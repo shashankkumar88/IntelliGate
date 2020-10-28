@@ -12,7 +12,9 @@
 </head>
 
 <body>
-
+    <div id="head" class="page-header">
+      <h1>Arduino Simulator</h1>
+    </div>
 	
  <canvas id="canv"></canvas>
  <canvas id="ImageCanvas"></canvas> 
@@ -26,9 +28,7 @@
 
   <script>
 //	    <div id="cont" class="container">
- //   <div id="head" class="page-header">
-  //    <h1>Arduino Simulator</h1>
-   // </div>
+
    // <p class="lead"><br/><br/>
 	
 	
@@ -99,7 +99,7 @@ canv.width=1200;
         var ImageCanvasContext = canv.getContext('2d');
 	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth,800);
 	      ImageCanvasContext.clearRect(500,500, 600, 600);
-	      lcd.render(ImageCanvasContext, 100, 100, 200, 200);
+	      lcd.render(ImageCanvasContext, 100, 800, 300, 700);
       }
       window.setTimeout(lcdLoop, 50);
     };

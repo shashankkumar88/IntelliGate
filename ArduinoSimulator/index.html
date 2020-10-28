@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    <div id="head" class="page-header">
+   <center> <div id="head" class="page-header">
       <h1>Arduino Simulator</h1>
-    </div>
+	   </div></center>
 	
  <canvas id="canv"></canvas>
- <canvas id="ImageCanvas"></canvas> 
+ <center> <canvas id="ImageCanvas"></canvas> </center> 
    
   <img id="ArduinoSimulator" src="../Images/CircuitDiagram2.png" style="display:none;" alt="ArduinoSimulator"/>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
@@ -99,7 +99,7 @@ canv.width=1200;
         var ImageCanvasContext = canv.getContext('2d');
 	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth,800);
 	      ImageCanvasContext.clearRect(500,500, 600, 600);
-	      lcd.render(ImageCanvasContext, 100, 800, 300, 700);
+	      lcd.render(ImageCanvasContext, 400, 800, 300, 700);
       }
       window.setTimeout(lcdLoop, 50);
     };

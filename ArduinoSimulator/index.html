@@ -18,11 +18,12 @@
     </div>
     <p class="lead"><br/><br/>
 	<canvas id="canv"></canvas>
+	<canvas id="ImageCanvas"></canvas> 
   </div>
 
 
    
-  <img id="ArduinoSimulator" src="../Images/CircuitDiagram2.png" alt="ArduinoSimulator"/>
+  <img id="ArduinoSimulator" src="../Images/CircuitDiagram2.png" style="display:none;" alt="ArduinoSimulator"/>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous">
   </script>
 
@@ -30,7 +31,7 @@
   <script src="../ArduinoSimulator/bin/vrEmuLcdWasm.js"></script>
 
   <script>
-	  //style="display:none;" 
+	  
     var cont = $(document.getElementById('cont'));
     var canv = document.getElementById('canv');
     var ctx = canv.getContext('2d');
@@ -90,6 +91,11 @@
         // render the bezel
         //ctx.drawImage(lcd1602, xOff, yOff, lcd1602.width * scale, lcd1602.height * scale);
 	//ctx.drawImage(ArduinoSimulator, -300, -300, ArduinoSimulator.width, ArduinoSimulator.height);
+	 
+	      //Draw the iage inside canvas
+	var ImageCanvas = document.getElementById('ImageCanvas');
+        var ImageCanvasContext = canv.getContext('2d');
+	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.width, ArduinoSimulator.height);
       }
       window.setTimeout(lcdLoop, 50);
     };

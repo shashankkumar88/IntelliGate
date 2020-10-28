@@ -45,7 +45,8 @@
     //  canv.width = cont.width();
      // canv.height = window.innerHeight * 0.5;
     //}
-
+canv.height=1200;
+canv.width=1200;	  
     lcdLoop = null;
     lcd = null;
 
@@ -98,7 +99,7 @@
         var ImageCanvasContext = canv.getContext('2d');
 	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth,800);
 	      ImageCanvasContext.clearRect(500,500, 600, 600);
-	      lcd.render(ImageCanvasContext, 500, 500, 600, 600);
+	      lcd.render(ImageCanvasContext, 100, 100, 200, 200);
       }
       window.setTimeout(lcdLoop, 50);
     };

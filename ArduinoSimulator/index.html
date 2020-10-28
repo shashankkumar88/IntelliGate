@@ -96,8 +96,8 @@
 	var ImageCanvas = document.getElementById('ImageCanvas');
         var ImageCanvasContext = canv.getContext('2d');
 	ImageCanvasContext.drawImage(ArduinoSimulator,1, 1, ArduinoSimulator.naturalWidth,800);
-	      ImageCanvasContext.clearRect(20, 20, 500, 500);
-	      lcd.render(ImageCanvasContext, 5, 5, 200, 200);
+	      ImageCanvasContext.clearRect(500,500, 600, 600);
+	      lcd.render(ImageCanvasContext, 500, 500, 600, 600);
       }
       window.setTimeout(lcdLoop, 50);
     };

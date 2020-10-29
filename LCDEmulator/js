@@ -8,7 +8,7 @@ var interval = setInterval(function() {
       //console.log(time)
       Http.open("GET", url,false);
       Http.send();
-      if (Http.status === 200) {
+      if (Http.status == 200) {
 		  var strTotalPeople= "Total People ";
 		  var totalPeople = parseInt(JSON.parse(Http.responseText).field3);
 		  console.log(totalPeople);

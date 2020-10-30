@@ -17,3 +17,6 @@ This project deals with counting the number of people entering/exiting in enclos
 ## Future Work
 * Connect multiple Wyze IP camera for multi-entrance enclosed spaces
 * Control door open/close through IOT
+* Face Mask Detection
+* Integration with Automated Thermal Screening systems
+* Footfall analysis using MATLAB

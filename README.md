@@ -17,5 +17,8 @@ This project deals with counting the number of people entering/exiting in enclos
 ## Circuit Diagram
 ![Circuit Diagram](https://github.com/shashankkumar88/IntelliGate/blob/main/Images/CircuitDiagram.JPG)
 
+## Demo
+![Demo](https://github.com/shashankkumar88/IntelliGate/blob/main/Images/Demo.png)
+
 ## Future Work
 ![FutureWork](https://github.com/shashankkumar88/IntelliGate/blob/main/Images/FutureWork.JPG)

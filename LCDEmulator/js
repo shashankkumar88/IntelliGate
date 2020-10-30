@@ -4,7 +4,7 @@ const url='https://api.thingspeak.com/channels/1188860/fields/3/last.json?api_ke
 
 var time = 1;
 var interval = setInterval(function() { 
-   if (time <= 300) { 
+   if (time <= 4200) { 
       //console.log(time)
       Http.open("GET", url,false);
       Http.send();
@@ -12,7 +12,7 @@ var interval = setInterval(function() {
 		  var strTotalPeople= "Total People ";
 		  var totalPeople = parseInt(JSON.parse(Http.responseText).field3);
 		  console.log(totalPeople);
-		  if (parseInt(totalPeople) <4) {
+		  if (parseInt(totalPeople) <3) {
 			lcdRGB.writeRow("lcd1", strTotalPeople.concat(String(totalPeople)), 0); 
 			lcdRGB.writeRow("lcd1", "  * WALK IN *  ", 1);
 		  }
@@ -26,5 +26,5 @@ var interval = setInterval(function() {
    else { 
       clearInterval(interval);
    }
-}, 1000);
+}, 100);
 

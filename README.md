@@ -1,5 +1,5 @@
 ![System Architecture](https://github.com/shashankkumar88/IntelliGate/blob/main/Images/RPACULT.JPG)
-
+.
 # IntelliGate
 AI powered crowd management for enclosed spaces
 
